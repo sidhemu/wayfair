@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+:root {
+  --text-color: #242526;
+  --nav-size: 200px;
+  --border-radius: 8px;
+  --border: 1px solid #d3d3d3;
+  --speed: 650ms;
+  --width: 400px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Lato", sans-serif;
+}
