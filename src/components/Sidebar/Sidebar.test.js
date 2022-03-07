@@ -15,19 +15,21 @@ test("render sidebar component", () => {
 
 test("render sub list in side nav bar", () => {
   const intitialState = true;
+  const recurrsion = jest.fn();
   const { container } = render(
     <SidebarList
       toggle={intitialState}
       item={dataArr}
-      recurRenderList={jest.fn()}
+      recurRenderList={recurrsion}
     />
   );
   expect(container.querySelector(".side-nav-text")).toBeInTheDocument();
 });
 
 test("testing expand list", () => {
+  const recurrsion = jest.fn();
   const { container } = render(
-    <SidebarList toggle={true} item={dataArr} recurRenderList={jest.fn()} />
+    <SidebarList toggle={true} item={dataArr} recurRenderList={recurrsion} />
   );
   fireEvent.click(container.querySelector(".children-arrow"));
 

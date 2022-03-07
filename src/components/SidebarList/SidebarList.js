@@ -49,7 +49,7 @@ const SidebarList = (props) => {
       {toggle && isVisible && (
         <div data-testid="children-list" className="children-nav">
           {item && item?.children?.length && (
-            <ul>{recurRenderList(item.children)}</ul>
+            <ul className="ul-sub-list">{recurRenderList(item.children)}</ul>
           )}
         </div>
       )}

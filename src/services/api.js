@@ -112,3 +112,12 @@ export const mockData = {
     },
   ],
 };
+
+export const mockDataWithUrl = {
+  title: "Tickets",
+  url: "https://partnerswayfaircom.csnzoo.com/app/tickets",
+  id: "menu-ticket",
+  icon: "tickets",
+  hasAlert: null,
+  children: [],
+};

@@ -1,10 +1,11 @@
 import "@testing-library/jest-dom";
 import * as React from "react";
-import { render, fireEvent, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import SidebarList from "./SidebarList";
-import { mockData } from "../../services/api";
+import { mockData, mockDataWithUrl } from "../../services/api";
 
 let dataArr = mockData;
+let dataWithUrl = mockDataWithUrl;
 
 test("render sidebar list component", () => {
   render(<SidebarList item={dataArr} toggle={false} />);
@@ -15,5 +16,14 @@ test("render sidebar list component", () => {
 });
 
 test("check for url", () => {
-  const { container } = render(<SidebarList item={dataArr} toggle={true} />);
+  const recurrsion = jest.fn();
+  const { container } = render(
+    <SidebarList
+      item={dataWithUrl}
+      toggle={true}
+      recurRenderList={recurrsion}
+    />
+  );
+
+  expect(container.querySelector(".url-link")).toBeInTheDocument();
 });
