@@ -29,12 +29,18 @@ const Sidebar = (props) => {
 
   return (
     <>
-      <div className={sidebarToggle ? "sidebar active" : "sidebar"}>
-        <div to="#" className="menu-bar">
-          <MdIcons.MdMenu onClick={showSidebar} />
+      <div
+        data-testid="hamburger-menu"
+        className={sidebarToggle ? "sidebar active" : "sidebar"}
+      >
+        <div className="menu-bar" data-testid="menu-btn" onClick={showSidebar}>
+          <MdIcons.MdMenu className="hamburger-icon" />
         </div>
       </div>
-      <nav className={sidebarToggle ? "side-nav-menu active" : "side-nav-menu"}>
+      <nav
+        data-textid="nav-menu"
+        className={sidebarToggle ? "side-nav-menu active" : "side-nav-menu"}
+      >
         <ul className="side-nav-menu-items">{recurRenderList(sideBarData)}</ul>
       </nav>
     </>

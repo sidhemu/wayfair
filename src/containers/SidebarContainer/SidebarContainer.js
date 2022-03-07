@@ -26,7 +26,7 @@ const SidebarContainer = (props) => {
 };
 
 SidebarContainer.propTypes = {
-  updateSideBarToggle: PropTypes.func.isRequired,
+  updateSideBarToggle: PropTypes.func,
   sidebarToggle: PropTypes.bool.isRequired,
 };
 

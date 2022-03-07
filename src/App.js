@@ -13,10 +13,14 @@ function App() {
   return (
     <>
       <SidebarContainer
+        data-testid="sidebar-container"
         updateSideBarToggle={updateSideBarToggle}
         sidebarToggle={sidebarToggle}
       />
-      <NavbarContainer sidebarToggle={sidebarToggle} />
+      <NavbarContainer
+        data-testid="navbar-container"
+        sidebarToggle={sidebarToggle}
+      />
     </>
   );
 }

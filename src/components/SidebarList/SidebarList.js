@@ -21,29 +21,34 @@ const SidebarList = (props) => {
             data-testid="sidebar-list-p"
             className={toggle ? "side-nav-title active" : "side-nav-title"}
           >
-            {item?.icon && <span>{item.icon}</span>}
-            {item?.url === null ? (
-              <span>{item.title}</span>
-            ) : (
-              <a href={item.url}>{item.title}</a>
+            {item && item?.icon && <span>{item.icon}</span>}
+            {item && !item.url && <span>{item.title}</span>}
+            {item && item.url !== null && (
+              <a className="url-link" href={item.url}>
+                {item.title}
+              </a>
             )}
           </p>
-          {item?.icon && (
+          {item && item?.icon && (
             <i className={toggle ? "side-nav-icon" : "side-nav-icon active"}>
               {item.icon}
             </i>
           )}
         </>
 
-        {item.children && item.children.length ? (
-          <span className="children-arrow" onClick={expand}>
+        {item && item?.children?.length > 0 && (
+          <span
+            data-testid="span-expand"
+            className="children-arrow"
+            onClick={expand}
+          >
             <MdIcons.MdKeyboardArrowDown />
           </span>
-        ) : null}
+        )}
       </div>
       {toggle && isVisible && (
-        <div className="children-nav">
-          {item.children && item.children.length && (
+        <div data-testid="children-list" className="children-nav">
+          {item && item?.children?.length && (
             <ul>{recurRenderList(item.children)}</ul>
           )}
         </div>
